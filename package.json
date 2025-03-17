@@ -1,0 +1,21 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "npm run dev:cross-env",
+    "dev:cross-env": "cross-env APP_ENV=development LOCAL=local npx nuxi dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "nuxt": "^3.16.0",
+    "nuxt-app": "file:",
+    "sass": "^1.85.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  }
+}
