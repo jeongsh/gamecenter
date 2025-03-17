@@ -1,19 +1,13 @@
 <template>
   <div>
-
   </div>
 </template>
 
 <script setup lang="ts">
-// pages/qr로 redirect
-import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-onMounted(() => {
-  router.push('/qr')
-})
+import Lnb from '@/components/list/lnb.vue'
+import Theme from '@/components/list/theme.vue'
+import My from '@/components/list/my.vue'
 </script>
 
 <style lang="scss" scoped>
