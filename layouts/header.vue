@@ -4,7 +4,7 @@
       <div class="nav-left-menu">
         <h1 class="logo">
           <a class="link-logo" :href="RAPORAPO_WEB_HOST">
-            <img src="~/assets/images/logo.svg" alt="RAPORAPO">
+            <img src="@/assets/images/logo.svg" alt="RAPORAPO">
           </a>
         </h1>
         <ul class="link-wrap">
@@ -59,20 +59,28 @@
 
       <div class="nav-right-menu">
         <button
-          class="btn btn-user-menu collapsed"
-          data-bs-toggle="collapse"
-          data-bs-target="#user-menu"
+          class="btn btn-user-menu"
+          @click="toggleUserMenu"
         >
           <!-- <img class="user-img" :src="$getProfileImageSrc(user.userNo, user.userProfileImage)" alt="">
           <div class="user-nickname ellipsis">{{user.userNickname}}</div> -->
+          <img class="user-img" src="@/assets/images/thumb-ex.jpeg"alt="">
+          <div class="user-nickname ellipsis">닉네임닉네임닉네임</div>
         </button>
 
-        <div id="user-menu" class="collapse user-menu">
+        <div 
+          class="user-menu"
+          :class="{ collapsed: !isCollapsed }"
+          ref="userMenu"
+        >
           <a :href="TREE_HOUSE_URL" class="link-profile">
             <!-- <img class="user-img" :src="$getProfileImageSrc(user.userNo, user.userProfileImage)" alt=""> -->
+            <img class="user-img" src="@/assets/images/thumb-ex.jpeg" alt="">
             <div class="box-text">
               <!-- <div class="menu-nickname">{{user.userNickname}}</div>
               <div class="menu-id">{{user.userId}}</div> -->
+              <div class="menu-nickname">닉네임닉네임닉네임</div>
+              <div class="menu-id">asdfasdf</div>
             </div>
           </a>
 
@@ -240,8 +248,6 @@ import {
 //   user,
 // } = useAuthStore()
 
-
-
 const { active } = defineProps({
   active: {
     type: String,
@@ -250,9 +256,12 @@ const { active } = defineProps({
   }
 })
 
+const isCollapsed = ref(true)
+const isCollapsing = ref(false)
+const userMenu = ref<HTMLElement | null>(null)
+
 onMounted(() => {
   const header = document.querySelector("#header");
-
   //data-depth1에 마우스 올렸을 때 data-depth2 active추가
   const depth1 = document.querySelectorAll("[data-depth1]");
   const depth2 = document.querySelectorAll("[data-depth2]");
@@ -275,11 +284,30 @@ onMounted(() => {
     depth2.forEach((el) => el.classList.remove("active"));
   });
 });
+
+const toggleUserMenu = async () => {
+  if (isCollapsing.value) {
+    return; // 이미 애니메이션 중이면 아무것도 하지 않음
+  }
+  // isCollapsed 값 변경
+  isCollapsing.value = true;
+  if (isCollapsed.value) {
+    if (userMenu.value) userMenu.value.style.display = 'block';
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    isCollapsed.value = false;
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    isCollapsing.value = false;
+  } else {
+    isCollapsed.value = true;
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    if (userMenu.value) userMenu.value.style.display = 'none';
+    isCollapsing.value = false;
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 @use "~/assets/scss/variables" as *;
-
 .nav {
   background: #fff;
   position: sticky;
@@ -413,11 +441,21 @@ onMounted(() => {
   right: 0;
   bottom: -168px;
   border-radius: 16px;
-  border: 1px solid #EDEDED;
   background: #FFF;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.24);
   width: 294px;
+  height: 0;
   padding: 0 16px;
+  transition: height .35s ease;
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+  display: none;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.24);
+  border: 1px solid #EDEDED;
+  &.collapsed {
+    height: 146px;
+    
+  }
   .link-profile {
     display: flex;
     align-items: center;

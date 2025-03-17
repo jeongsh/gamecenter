@@ -41,6 +41,7 @@ export default defineNuxtConfig({
       ]
     }
   },
+  modules: ['@pinia/nuxt'],
   runtimeConfig: {
     public: {
       /**
@@ -57,6 +58,6 @@ export default defineNuxtConfig({
     '@/assets/fonts/css/icon-font-codes.css',
     '@/assets/scss/common.scss'
   ],
-  
+
   devtools: { enabled: true }
 })
