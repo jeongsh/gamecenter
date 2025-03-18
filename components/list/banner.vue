@@ -14,12 +14,10 @@
 <script setup lang="ts">
 import type { GameType } from "@/types/common";
 import { CDN_GAME_PATH, CDN_GAME_MANUAL_PATH } from "@/consts/path";
-const {
-  gameType,
-} = defineProps<{
-  gameType: GameType
-}>()
+import { useCommonStore } from '@/stores/common';
 
+const commonStore = useCommonStore()
+const gameType = commonStore.gameType as GameType
 const bannerUrls = {
   qr: `${CDN_GAME_PATH}/qr/main-top-qr.png`,
   ox: `${CDN_GAME_PATH}/ox/main-top-ox.png`,

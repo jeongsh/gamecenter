@@ -1,20 +1,29 @@
 <template>
   <div class="container">
-    <ListLnb :gameType = "gameType"/>
+    <ListLnb/>
     <div class="container-list">
       <div class="wrap-list">
-        <ListBanner :gameType = "gameType"/>
-        <List :gameType = "gameType"/>
+        <ListBanner/>
+        <List/>
       </div>
     </div>
   </div>
+  <Modals/>
 </template>
 
 <script setup lang="ts">
 import type { GameType } from "@/types/common";
 import { useRouter } from 'vue-router';
+import { useCommonStore } from '@/stores/common';
 const router = useRouter();
-const gameType = router.currentRoute.value.params.listGameType as GameType;
+const route = useRoute();
+const commonStore = useCommonStore();
+
+watchEffect(() => {
+  if (route.params.gameType) {
+    commonStore.setGameType(route.params.gameType as GameType);
+  }
+});
 </script>
 
 <style lang="scss" scoped>

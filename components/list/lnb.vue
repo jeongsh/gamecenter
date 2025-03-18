@@ -89,6 +89,7 @@
 
 <script lang="ts" setup>
 import type { GameType } from '@/types/common';
+import { useCommonStore } from '@/stores/common';
 // const {
 //   $auth: {
 //     user,
@@ -96,11 +97,8 @@ import type { GameType } from '@/types/common';
 // } = useNuxtApp()
 
 
-const {
-  gameType,
-} = defineProps<{
-  gameType: GameType
-}>()
+const commonStore = useCommonStore()
+const gameType = commonStore.gameType
 </script>
 
 <style lang="scss" scoped>

@@ -15,7 +15,10 @@
       >
         나의 게임 세트
       </button>
-      <button class="btn-create btn-secondary">
+      <button 
+        class="btn-create btn-secondary"
+        @click="modalStore.openModal('create')"
+      >
         <i class="icon-add"></i>
       </button>
     </div>
@@ -26,6 +29,12 @@
 </template>
 
 <script setup lang="ts">
+import type { GameType } from '@/types/common'
+import { useModalStore } from '@/stores/modal';
+import { useCommonStore } from '@/stores/common';
+
+const modalStore = useModalStore();
+const commonStore = useCommonStore();
 const tabType = ref('theme')
 
 const handleTab = (type: string) => {
