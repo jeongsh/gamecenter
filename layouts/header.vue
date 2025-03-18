@@ -97,52 +97,52 @@
     <div class="nav-depth-2" data-depth2="game">
       <ul class="link-wrap">
         <li>
-          <a
-            :href="`${RAPORAPO_GAME_HOST}/qr`"
+          <NuxtLink
+            :to="`${RAPORAPO_GAME_HOST}/qr`"
             class="btn-link"
           >
             QR퀴즈 방탈출
-          </a>
+          </NuxtLink>
         </li>
         <li>
-          <a
-            :href="`${RAPORAPO_GAME_HOST}/ox`"
+          <NuxtLink
+            :to="`${RAPORAPO_GAME_HOST}/ox`"
             class="btn-link"
           >
             OX-배틀로얄
-          </a>
+          </NuxtLink>
         </li>
         <li>
-          <a
-            :href="`${RAPORAPO_GAME_HOST}/bingo`"
+          <NuxtLink
+            :to="`${RAPORAPO_GAME_HOST}/bingo`"
             class="btn-link"
           >
             빙고의 신
-          </a>
+          </NuxtLink>
         </li>
         <li>
-          <a
-            :href="`${RAPORAPO_GAME_HOST}/quiztime`"
+          <NuxtLink
+            :to="`${RAPORAPO_GAME_HOST}/quiztime`"
             class="btn-link"
           >
             퀴즈타임
-          </a>
+          </NuxtLink>
         </li>
         <li>
-          <a
-            :href="`${RAPORAPO_GAME_HOST}/baseball`"
+          <NuxtLink
+            :to="`${RAPORAPO_GAME_HOST}/baseball`"
             class="btn-link"
           >
             HIT & RUN
-          </a>
+          </NuxtLink>
         </li>
         <li>
-          <a
-            :href="`${RAPORAPO_GAME_HOST}/mindgaze`"
+          <NuxtLink
+            :to="`${RAPORAPO_GAME_HOST}/mindgaze`"
             class="btn-link"
           >
             시선추적 AI 심리검사
-          </a>
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -310,7 +310,8 @@ const toggleUserMenu = async () => {
 @use "~/assets/scss/variables" as *;
 .nav {
   background: #fff;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 1030;
   height: 56px;
@@ -392,14 +393,14 @@ const toggleUserMenu = async () => {
     }
     .btn-link {
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 400;
       letter-spacing: -0.2px;
       color: #767676;
       text-decoration-line: none;
       display: block;
 
       &.active {
-        color: $gray-6;
+        color: $text;
         font-weight: 600;
       }  // nav-header
     }
@@ -431,7 +432,7 @@ const toggleUserMenu = async () => {
     .user-nickname {
       color: #2b2b2b;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 21px;
     }
   }
@@ -481,9 +482,9 @@ const toggleUserMenu = async () => {
   }
   .menu-nickname {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.6px;
-    color: $gray-6;
+    color: $text;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -493,7 +494,7 @@ const toggleUserMenu = async () => {
   }
   .menu-id {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.36px;
     color: #949494;
     line-height: 14px;
@@ -512,7 +513,7 @@ const toggleUserMenu = async () => {
     align-items: center;
     color: #2B2B2B;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.56px;
     &:nth-of-type(2) {
       border-color: #16A3F7;
@@ -530,6 +531,7 @@ const toggleUserMenu = async () => {
   width: 100%;
   height: 46px;
   position: relative;
+  pointer-events: none;
 }
 .nav-depth-2 {
   padding: 0 40px 0 264px;
@@ -539,6 +541,7 @@ const toggleUserMenu = async () => {
   position: absolute;
   top: -100%;
   transition: 0.5s;
+  pointer-events: auto;
 
   .link-wrap {
     display: flex;
@@ -558,7 +561,7 @@ const toggleUserMenu = async () => {
       align-items: center;
       justify-content: center;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 400;
       letter-spacing: -0.2px;
       color: #767676;
       text-decoration-line: none;

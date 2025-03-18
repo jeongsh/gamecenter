@@ -7,6 +7,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "predev": "npm i",
     "dev": "npm run dev:cross-env",
     "dev:cross-env": "cross-env APP_ENV=development LOCAL=local npx nuxi dev",
     "generate": "nuxt generate",

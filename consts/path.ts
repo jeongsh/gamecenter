@@ -90,34 +90,13 @@ export const CDN_DOMAIN = (
   )
 )
 
-export const CDN_SQUARE_PREFIX = 'square'
-export const CDN_SQUARE_PATH = `${CDN_DOMAIN}/${CDN_SQUARE_PREFIX}`
+export const CDN_GAME_PREFIX = 'game/resource/common/game'
+export const CDN_GAME_PATH = `${CDN_DOMAIN}/${CDN_GAME_PREFIX}`
+export const CDN_GAME_MANUAL_PATH = `${CDN_DOMAIN}/game/resource/upload/guide`
 
 export const LOGIN_PAGE_URL = `${RAPORAPO_WEB_HOST}/login`
 export const LOGOUT_PAGE_URL = `${RAPORAPO_WEB_HOST}/logout.do`
-export const ENTER_URL = `${RAPORAPO_WEB_HOST}/square/enter`
+export const ENTER_URL = `${RAPORAPO_WEB_HOST}/ga,e/enter`
 export const TREE_HOUSE_URL =  `${RAPORAPO_WEB_HOST}/account`
 export const AGREEMENT_PAGE_URL = `${RAPORAPO_WEB_HOST}/agreement`
 export const PRIVACY_PAGE_URL = `${RAPORAPO_WEB_HOST}/privacy`
-
-// debate
-export const DEBATE_PLACE_LIST_URL = `${SERVICE_HOST}/debate/debate-place`
-export const DEBATE_PLACE_ENTERED_URL = `${SERVICE_HOST}/debate/debate-place/enter`
-
-// battle
-export const BATTLE_ROOM_LIST_URL = `${SERVICE_HOST}/battle/battle-room`
-export const BATTLE_ROOM_ENTERED_URL = `${SERVICE_HOST}/battle/battle-room/enter`
-
-export const CDN_SQUARE_DEFAULT_BATTLE_ROOM_THUMBNAIL_S3_KEY = `${CDN_SQUARE_PREFIX}/battle/defaults/default-battle-room-thumbnail.png`
-export const CDN_SQUARE_DEFAULT_BATTLE_ROOM_THUMBNAIL_PATH = `${CDN_DOMAIN}/${CDN_SQUARE_DEFAULT_BATTLE_ROOM_THUMBNAIL_S3_KEY}`
-export const CDN_SQUARE_BATTLE_ROOM_THUMBNAIL_PATH_PREFIX = `${CDN_DOMAIN}/${CDN_SQUARE_PREFIX}/battle/uploads/battle-room-thumbnails`
-export const CDN_SQUARE_BATTLE_AVATAR_PATH_PREFIX = `${CDN_DOMAIN}/${CDN_SQUARE_PREFIX}/battle/avatars`
-
-// vote
-export const VOTE_ROOM_LIST_URL = `${SERVICE_HOST}/vote/vote-room`
-export const VOTE_ROOM_ENTERED_URL = `${SERVICE_HOST}/vote/vote-room/enter`
-
-export const CDN_SQUARE_DEFAULT_VOTE_ROOM_THUMBNAIL_S3_KEY = `${CDN_SQUARE_PREFIX}/vote/defaults/default-vote-room-thumbnail.png`
-export const CDN_SQUARE_DEFAULT_VOTE_ROOM_THUMBNAIL_PATH = `${CDN_DOMAIN}/${CDN_SQUARE_DEFAULT_VOTE_ROOM_THUMBNAIL_S3_KEY}`
-export const CDN_SQUARE_VOTE_ROOM_THUMBNAIL_PATH_PREFIX = `${CDN_DOMAIN}/${CDN_SQUARE_PREFIX}/vote/uploads/vote-room-thumbnails`
-export const CDN_SQUARE_VOTE_AVATAR_PATH_PREFIX = `${CDN_DOMAIN}/${CDN_SQUARE_PREFIX}/vote/avatars`
