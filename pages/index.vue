@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 onMounted(() => {
-  router.push('/list/qr')
+  router.push('/qr')
 })
 </script>
 
