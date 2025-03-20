@@ -33,12 +33,12 @@ import { CDN_DOMAIN } from "@/consts/path";
 import { useCommonStore } from '@/stores/common';
 
 const commonStore = useCommonStore()
-const gameType = commonStore.gameType
+const gameType = storeToRefs(commonStore).gameType as GameType
 
 // 테스트용 임시 데이터
 const qrThemeList = [
   {
-    themeNo: 1,
+    themeNo: 118,
     themeTitle: '그 피라미드는 진짜가 아니야',
     tagList: ['테마', '게임', '게임', '게임', '게임'],
     themeThumbnail: `https://cdn.raporapo.com/game/resource/upload/qr/thumbnail/20250228/155028757449385.jpeg`,
@@ -176,15 +176,15 @@ const baseballThemeList = [
 // 테스트용 임시
 const themeList = computed(() => {
   // gameType에 따라 테마 리스트를 반환
-  if (gameType === 'qr') {
+  if (gameType.value === 'qr') {
     return qrThemeList
-  } else if (gameType === 'ox') {
+  } else if (gameType.value === 'ox') {
     return oxThemeList
-  } else if (gameType === 'bingo') {
+  } else if (gameType.value === 'bingo') {
     return bingoThemeList
-  } else if (gameType === 'quiztime') {
+  } else if (gameType.value === 'quiztime') {
     return quiztimeThemeList
-  } else if (gameType === 'baseball') {
+  } else if (gameType.value === 'baseball') {
     return baseballThemeList
   }
 })
@@ -233,13 +233,11 @@ const themeList = computed(() => {
         .tag{
           color: #949494;
           font-size: 14px;
-          font-weight: 400;
         }
       }
       .link-primary{
         color: $primary;
         font-size: 14px;
-        font-weight: 400;
       }
       .writer{
         color: #949494;

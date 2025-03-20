@@ -98,7 +98,7 @@ import { useCommonStore } from '@/stores/common';
 
 
 const commonStore = useCommonStore()
-const gameType = commonStore.gameType
+const gameType = storeToRefs(commonStore).gameType as GameType
 </script>
 
 <style lang="scss" scoped>

@@ -5,7 +5,10 @@
       class="modal"
       @click="modalStore.closeModal()"
     >
-      <ModalsCreateModal v-if="modalStore.modalState === 'create'" />
+      <ModalsCreateModal 
+        v-if="modalStore.modalState === 'create'"
+        @close="modalStore.closeModal()"
+      />
     </div>
   </transition>
 </template>

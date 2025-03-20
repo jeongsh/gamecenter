@@ -6,8 +6,7 @@ import type {
 
 const DEPLOY_TARGET = <DeployTarget> process.env?.DEPLOY_TARGET ?? 'local'
 
-// Set the port to 8080
-process.env.PORT = '8080';
+process.env.PORT = '9000';
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -53,7 +52,6 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    '@/assets/fonts/css/pretendard.css',
     '@/assets/fonts/css/icon-font.css',
     '@/assets/fonts/css/icon-font-codes.css',
     '@/assets/scss/common.scss'

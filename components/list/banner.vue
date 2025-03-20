@@ -17,7 +17,8 @@ import { CDN_GAME_PATH, CDN_GAME_MANUAL_PATH } from "@/consts/path";
 import { useCommonStore } from '@/stores/common';
 
 const commonStore = useCommonStore()
-const gameType = commonStore.gameType as GameType
+const gameType = storeToRefs(commonStore).gameType as GameType
+
 const bannerUrls = {
   qr: `${CDN_GAME_PATH}/qr/main-top-qr.png`,
   ox: `${CDN_GAME_PATH}/ox/main-top-ox.png`,
@@ -34,8 +35,8 @@ const manualUrls = {
   baseball: null,
 }
 
-const bannerUrl = ref(bannerUrls[gameType as keyof typeof bannerUrls])
-const manualUrl = ref(manualUrls[gameType as keyof typeof manualUrls])
+const bannerUrl = ref(bannerUrls[gameType.value as keyof typeof bannerUrls])
+const manualUrl = ref(manualUrls[gameType.value as keyof typeof manualUrls])
 
 </script>
 

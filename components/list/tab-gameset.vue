@@ -70,7 +70,7 @@ onMounted(() => {
 })
 
 const commonStore = useCommonStore()
-const gameType = commonStore.gameType
+const gameType = storeToRefs(commonStore).gameType as GameType
 
 const isShowDropdown = ref<number | null>(null)
 
@@ -209,7 +209,6 @@ const setList = [
           justify-content: center;
           color: #fff;
           font-size: 14px;
-          font-weight: 400;
           opacity: 0;
           transition: .3s;
         }

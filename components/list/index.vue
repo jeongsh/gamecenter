@@ -63,7 +63,6 @@ const handleTab = (type: string) => {
     background: #FFF;
     color: #949494;
     font-size: 14px;
-    font-weight: 400;
     line-height: 1;
   }
   .btn-create{

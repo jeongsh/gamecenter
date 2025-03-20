@@ -25,7 +25,7 @@ export const RAPORAPO_WEB_HOST = (
   )
 )
 
-export const RAPORAPO_GAME_HOST_LOCAL = 'http://localhost:9000'
+export const RAPORAPO_GAME_HOST_LOCAL = `http://localhost:${PORT}`
 export const RAPORAPO_GAME_HOST_DEV = 'https://game.raporapo.dev'
 export const RAPORAPO_GAME_HOST_PROD = 'https://game.raporapo.com'
 export const RAPORAPO_GAME_HOST = (
@@ -35,6 +35,19 @@ export const RAPORAPO_GAME_HOST = (
     isDev ?
     RAPORAPO_GAME_HOST_DEV :
     RAPORAPO_GAME_HOST_PROD
+  )
+)
+
+export const RAPORAPO_PLAY_HOST_LOCAL = 'http://localhost:3000'
+export const RAPORAPO_PLAY_HOST_DEV = 'https://play.raporapo.dev'
+export const RAPORAPO_PLAY_HOST_PROD = 'https://play.raporapo.com'
+export const RAPORAPO_PLAY_HOST = (
+  isLocal ?
+  RAPORAPO_PLAY_HOST_LOCAL :
+  (
+    isDev ?
+    RAPORAPO_PLAY_HOST_DEV :
+    RAPORAPO_PLAY_HOST_PROD
   )
 )
 
@@ -64,16 +77,16 @@ export const RAPORAPO_POOL_HOST = (
   )
 )
 
-export const SERVICE_HOST_LOCAL = `https://localhost:${PORT}`
-export const SERVICE_HOST_DEV = 'https://square.raporapo.dev'
-export const SERVICE_HOST_PROD = 'https://square.raporapo.com'
-export const SERVICE_HOST = (
+export const RAPORAPO_SQUARE_HOST_LOCAL = 'http://localhost:3000'
+export const RAPORAPO_SQUARE_HOST_DEV = 'https://square.raporapo.dev'
+export const RAPORAPO_SQUARE_HOST_PROD = 'https://square.raporapo.com'
+export const RAPORAPO_SQUARE_HOST = (
   isLocal ?
-  SERVICE_HOST_LOCAL :
+  RAPORAPO_SQUARE_HOST_LOCAL :
   (
     isDev ?
-    SERVICE_HOST_DEV :
-    SERVICE_HOST_PROD
+    RAPORAPO_SQUARE_HOST_DEV :
+    RAPORAPO_SQUARE_HOST_PROD
   )
 )
 

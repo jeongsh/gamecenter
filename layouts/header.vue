@@ -19,7 +19,7 @@
           </li>
           <li>
             <a
-              class="btn-link active"
+              class="btn-link"
               href="/battle"
               data-depth1="square"
             >
@@ -28,7 +28,7 @@
           </li>
           <li>
             <a
-              class="btn-link"
+              class="btn-link active"
               :href="RAPORAPO_GAME_HOST"
               data-depth1="game"
             >
@@ -227,6 +227,9 @@
 </template>
 
 <script lang="ts" setup>
+import type { GameType } from '@/types/common'
+import { useCommonStore } from '@/stores/common'
+
 import {
   TREE_HOUSE_URL,
   LOGOUT_PAGE_URL,
@@ -247,6 +250,8 @@ import {
 // const {
 //   user,
 // } = useAuthStore()
+const commonStore = useCommonStore()
+const gameType = storeToRefs(commonStore).gameType as GameType
 
 const { active } = defineProps({
   active: {
@@ -393,7 +398,7 @@ const toggleUserMenu = async () => {
     }
     .btn-link {
       font-size: 12px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -0.2px;
       color: #767676;
       text-decoration-line: none;
@@ -432,7 +437,7 @@ const toggleUserMenu = async () => {
     .user-nickname {
       color: #2b2b2b;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 21px;
     }
   }
@@ -482,7 +487,7 @@ const toggleUserMenu = async () => {
   }
   .menu-nickname {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.6px;
     color: $text;
     width: 100%;
@@ -494,7 +499,7 @@ const toggleUserMenu = async () => {
   }
   .menu-id {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.36px;
     color: #949494;
     line-height: 14px;
@@ -513,7 +518,7 @@ const toggleUserMenu = async () => {
     align-items: center;
     color: #2B2B2B;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.56px;
     &:nth-of-type(2) {
       border-color: #16A3F7;
@@ -561,7 +566,7 @@ const toggleUserMenu = async () => {
       align-items: center;
       justify-content: center;
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: -0.2px;
       color: #767676;
       text-decoration-line: none;
