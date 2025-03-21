@@ -54,7 +54,6 @@
 
   const handleCheckboxChange = (value: string, isChecked: boolean) => {
     console.log(answerValue.value)
-    $howlerPlay('click.mp3')
     if (isChecked) {
       if (!answerValue.value.includes(String(value))) {
         answerValue.value.push(String(value))

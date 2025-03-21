@@ -5,7 +5,6 @@
       type="text"
       :value="propAnswerValue[0]"
       @change="inputedValue($event.target.value)"
-      @click="handleClickPlayClick"
       placeholder="정답을 입력해주세요."
     >
   </div>
@@ -31,9 +30,6 @@
     }
 
     emit('emitAnswer', answerValue.value)
-  }
-  const handleClickPlayClick = () => {
-    $howlerPlay('click.mp3')
   }
 </script>
 

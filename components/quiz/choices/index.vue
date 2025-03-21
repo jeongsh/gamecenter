@@ -3,7 +3,6 @@
     :is="getComponentType()"
     :choices="choices"
     :propAnswerValue="propAnswerValue"
-    :propQuestionIndex="propQuestionIndex"
     @emitAnswer="emitAnswerValue"
   >
   </component>
@@ -22,7 +21,6 @@
     choices: any
     questionType : string
     propAnswerValue : string[]
-    propQuestionIndex : number
   }>()
 
   const emit = defineEmits(['emitAnswer'])
@@ -31,7 +29,6 @@
     choices,
     questionType,
     propAnswerValue,
-    propQuestionIndex
   } = toRefs(props)
 
   const typeToString: any = {

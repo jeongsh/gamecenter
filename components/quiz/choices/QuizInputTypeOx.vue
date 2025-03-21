@@ -12,7 +12,7 @@
         value="o"
         id="type-o"
         :checked="propAnswerValue.includes('o')"
-        @click="handleClickPlayClick(); selectOx($event.target.value)"
+        @click="selectOx($event.target.value)"
       >
     </label>
     <label
@@ -26,7 +26,7 @@
         value="x"
         id="type-x"
         :checked="propAnswerValue.includes('x')"
-        @click="handleClickPlayClick(); selectOx($event.target.value)"
+        @click="selectOx($event.target.value)"
       >
     </label>
   </div>
@@ -48,10 +48,6 @@
 
     emit('emitAnswer', answerValue.value)
   }
-  const handleClickPlayClick = () => {
-    $howlerPlay('click.mp3')
-  }
-
 </script>
 <style lang="scss" scoped>
 .wrap-ox{
@@ -69,10 +65,10 @@ input{
   flex: 1;
   aspect-ratio: 1;
   cursor: pointer;
-  background: url(@/assets/images/quiztime/o-disable.svg) no-repeat center center;
+  // background: url(@/assets/images/quiztime/o-disable.svg) no-repeat center center;
   background-size: cover !important;
   &.active{
-    background: url(@/assets/images/quiztime/o.svg) no-repeat center center;
+    // background: url(@/assets/images/quiztime/o.svg) no-repeat center center;
   }
 }
 
@@ -84,10 +80,10 @@ input{
   flex: 1;
   aspect-ratio: 1;
   cursor: pointer;
-  background: url(@/assets/images/quiztime/x-disable.svg) no-repeat center center;
+  // background: url(@/assets/images/quiztime/x-disable.svg) no-repeat center center;
   background-size: cover !important;
   &.active{
-    background: url(@/assets/images/quiztime/x.svg) no-repeat center center;
+    // background: url(@/assets/images/quiztime/x.svg) no-repeat center center;
   }
 }
 
