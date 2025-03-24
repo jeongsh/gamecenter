@@ -14,7 +14,7 @@
         :class="{ active: tabType === 'general' }"
         @click="$emit('handleTab', 'general')"
       >
-        일반 문제(0)
+        일반 문제({{generalLength}})
       </button>
       <button 
         class="btn-menu"
@@ -23,6 +23,22 @@
       >
         추론 문제(0)
       </button>
+    </div>
+
+    <div class="container-index">
+      <div 
+        v-if="tabType === 'general'"
+        class="wrap-menu"
+      >
+        <button 
+          v-for="index in generalLength"
+          :class="{ active: currentGeneralIndex === index - 1 }"
+          class="btn-menu"
+          @click="$emit('changeGeneralIndex', index - 1)"
+        >
+          {{ index }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -40,10 +56,16 @@ const props = defineProps({
     type: String,
     default: 'general',
   },
+  currentGeneralIndex: {
+    type: Number,
+  },
+  generalLength: {
+    type: Number,
+  },
 })
 
 const commonStore = useCommonStore()
-const gameType = storeToRefs(commonStore).gameType as GameType
+const gameType = storeToRefs(commonStore).gameType
 </script>
 
 <style lang="scss" scoped>
@@ -53,8 +75,9 @@ const gameType = storeToRefs(commonStore).gameType as GameType
   background: #FFF;
   padding: 16px;
   height: 100%;
-  overflow-y: auto;
   border-right: 1px solid #EDEDED;
+  display: flex;
+  flex-direction: column;
 
   .wrap-menu{
     border-radius: 8px;
@@ -64,7 +87,7 @@ const gameType = storeToRefs(commonStore).gameType as GameType
     width: 100%;
     .btn-menu{
       width: 100%;
-      height: 36px;
+      height: 32px;
       border-bottom: 1px solid #EDEDED;
       display: flex;
       align-items: center;
@@ -77,6 +100,12 @@ const gameType = storeToRefs(commonStore).gameType as GameType
         background: #E8F6FE;
       }
     }
+  }
+
+  .container-index{
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 16px;
   }
 }
 </style>

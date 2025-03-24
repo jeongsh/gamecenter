@@ -1,13 +1,13 @@
 <template>
   <div>
     <img
-        :src="`${CDN_ROOT}/question/resource/upload/question/${content.content}`"
+      :src="`${CDN_DOMAIN}/question/resource/upload/${content.content}`"
+      style="border-radius: 8px;"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  const { content } = defineProps(['content'])
-  const CDN_ROOT = useRuntimeConfig().public.cdnRoot
-
+import { CDN_DOMAIN } from '~/consts/path';
+const { content } = defineProps(['content'])
 </script>

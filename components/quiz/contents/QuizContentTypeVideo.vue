@@ -2,6 +2,7 @@
   <iframe 
     :src="youtubeUrl"
     :class="isShorts ? 'shorts' : ''" 
+    style="border-radius: 8px;"
   />
 </template>
 
